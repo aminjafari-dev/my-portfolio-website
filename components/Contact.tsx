@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Button from './Button';
+import { RESUME_PDF_URL } from '../constants';
 
 const Contact: React.FC = () => {
   return (
@@ -28,7 +29,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-slate-400">Email</h4>
-                    <p className="text-white">dev.amin.jafari@gmail.com</p>
+                    <p className="text-white">dev@aminjafari.me</p>
                   </div>
                 </div>
 
@@ -57,9 +58,14 @@ const Contact: React.FC = () => {
                 <div className="relative z-10">
                   <h3 className="text-xl font-bold mb-2">Download Resume</h3>
                   <p className="text-white/80 mb-6 text-sm">Get a detailed look at my professional journey, skills, and Flutter expertise.</p>
-                  <button className="bg-white text-primary px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-100 transition-colors">
+                  <a
+                    href={RESUME_PDF_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-white text-primary px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-100 transition-colors"
+                  >
                     Download PDF
-                  </button>
+                  </a>
                 </div>
                 <div className="absolute right-0 bottom-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mb-16"></div>
              </div>

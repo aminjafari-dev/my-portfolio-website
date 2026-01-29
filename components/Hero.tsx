@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
 import Button from './Button';
-import { HERO_TITLE, HERO_SUBTITLE } from '../constants';
+import { HERO_SUBTITLE, RESUME_PDF_URL } from '../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -31,9 +31,14 @@ const Hero: React.FC = () => {
             <Button size="lg" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
               View Projects <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="outline" size="lg">
+            <a
+              href={RESUME_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-lg font-medium border border-slate-600 text-slate-200 hover:border-slate-400 hover:bg-slate-800 px-6 py-3.5 text-base transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark"
+            >
               Download CV <Download className="ml-2 w-5 h-5" />
-            </Button>
+            </a>
           </div>
           
           <div className="pt-8 flex items-center gap-8 justify-center md:justify-start text-slate-500">
@@ -43,13 +48,13 @@ const Hero: React.FC = () => {
              </div>
              <div className="w-px h-10 bg-slate-800"></div>
              <div>
-                <span className="block text-2xl font-bold text-white">7+</span>
+                <span className="block text-2xl font-bold text-white">6.5+</span>
                 <span className="text-sm">Years Flutter</span>
              </div>
              <div className="w-px h-10 bg-slate-800"></div>
              <div>
-                <span className="block text-2xl font-bold text-white">50+</span>
-                <span className="text-sm">Apps Launched</span>
+                <span className="block text-2xl font-bold text-white">5+</span>
+                <span className="text-sm">Companies</span>
              </div>
           </div>
         </div>
