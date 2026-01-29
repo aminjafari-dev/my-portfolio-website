@@ -1,5 +1,11 @@
 import React from 'react';
-import { Github, Linkedin, Heart } from 'lucide-react';
+import { Github, Linkedin, Heart, ExternalLink } from 'lucide-react';
+
+const SOCIAL_LINKS = [
+  { href: 'https://github.com/aminjafari-dev', label: 'GitHub', Icon: Github },
+  { href: 'https://linkedin.com/in/aminjafari-dev', label: 'LinkedIn', Icon: Linkedin },
+  { href: 'https://stackoverflow.com/users/aminjafari-dev', label: 'Stack Overflow', Icon: ExternalLink },
+] as const;
 
 const Footer: React.FC = () => {
   return (
@@ -11,13 +17,19 @@ const Footer: React.FC = () => {
             <p className="text-slate-500 text-sm mt-2">© {new Date().getFullYear()} Amin Jafari. All rights reserved.</p>
           </div>
           
-          <div className="flex items-center space-x-6">
-            <a href="https://github.com/aminjafari-dev" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
-              <Github className="w-5 h-5" />
-            </a>
-            <a href="https://linkedin.com/in/aminjafari-dev" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-secondary transition-colors">
-              <Linkedin className="w-5 h-5" />
-            </a>
+          <div className="flex items-center gap-6">
+            {SOCIAL_LINKS.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+                aria-label={label}
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
           </div>
         </div>
         
