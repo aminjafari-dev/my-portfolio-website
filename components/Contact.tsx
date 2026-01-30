@@ -71,29 +71,72 @@ const Contact: React.FC = () => {
              </div>
           </div>
 
-          {/* Form */}
-          <form className="bg-card border border-white/5 rounded-2xl p-8 shadow-xl" onSubmit={(e) => e.preventDefault()}>
+          {/* Form - handled by FormSubmit to send emails directly to dev@aminjafari.me */}
+          <form
+            action="https://formsubmit.co/dev@aminjafari.me"
+            method="POST"
+            className="bg-card border border-white/5 rounded-2xl p-8 shadow-xl"
+          >
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-2">Name</label>
-                  <input type="text" id="name" className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="Your Name" />
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                    placeholder="Your Name"
+                  />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-2">Email</label>
-                  <input type="email" id="email" className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="email@example.com" />
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                    placeholder="email@example.com"
+                  />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-slate-400 mb-2">Subject</label>
-                <input type="text" id="subject" className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="Collaboration / Job Opportunity" />
+                <label htmlFor="subject" className="block text-sm font-medium text-slate-400 mb-2">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                  placeholder="Collaboration / Job Opportunity"
+                />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-2">Message</label>
-                <textarea id="message" rows={4} className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Tell me about your project..."></textarea>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-none"
+                  placeholder="Tell me about your project..."
+                />
               </div>
+
+              {/* FormSubmit configuration: redirect back to your site and disable captcha */}
+              <input type="hidden" name="_next" value="https://aminjafari.me" />
+              <input type="hidden" name="_captcha" value="false" />
 
               <Button type="submit" size="lg" className="w-full">
                 Send Message
