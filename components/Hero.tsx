@@ -61,12 +61,12 @@ const Hero: React.FC = () => {
 
         <div className="flex-1 mt-12 md:mt-0 relative">
           <div className="relative w-80 h-80 md:w-[500px] md:h-[500px] mx-auto">
-             <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 blur-3xl"></div>
-             <img 
-               src="https://picsum.photos/600/600?grayscale" 
-               alt="Amin Jafari" 
-               className="relative w-full h-full object-cover rounded-3xl rotate-3 hover:rotate-0 transition-all duration-500 shadow-2xl border-2 border-white/10"
-             />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 blur-3xl"></div>
+            <img
+              src="/0.jpeg"
+              alt="Amin Jafari - Portrait"
+              className="relative w-full h-full object-cover rounded-3xl rotate-3 hover:rotate-0 transition-all duration-500 shadow-2xl border-2 border-white/10"
+            />
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
     title: 'Superlist — Savings & Banking',
     description: 'Joined the initial Canadian savings-account team as mobile engineer. Built the mobile app from scratch; led 3 projects and published high-quality apps on App Store and Google Play. Design system, Bloc, Git Flow, 50+ unit/widget tests.',
     tags: ['Flutter', 'Bloc', 'TDD', 'CI/CD', 'Fintech'],
-    imageUrl: 'https://picsum.photos/800/600?random=10',
+    imageUrl: '/1.jpeg',
     link: '#',
     github: undefined
   },
@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
     title: 'Natrium — Enterprise Apps',
     description: 'Led app developers; released 2 applications with app-store coordination. OAuth & Firebase auth (30% fewer unauthorized access), Bloc refactor (18% performance), TDD (23% fewer bugs), CI/CD (25% fewer deployment errors), WebSocket push.',
     tags: ['Flutter', 'Firebase Auth', 'OAuth', 'WebSocket', 'Git Flow'],
-    imageUrl: 'https://picsum.photos/800/600?random=20',
+    imageUrl: '/2.jpeg',
     link: '#',
     github: undefined
   },
@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
     title: 'Anytime Podcast Player',
     description: 'Google service integration (20% retention, 15% satisfaction), GitHub collaboration (35% efficiency), custom push notifications (20% engagement), 10+ custom widgets/animations, internationalization for 3 languages.',
     tags: ['Flutter', 'Google Services', 'Localization', 'Push Notifications'],
-    imageUrl: 'https://picsum.photos/800/600?random=30',
+    imageUrl: '/3.jpeg',
     link: '#',
     github: undefined
   }

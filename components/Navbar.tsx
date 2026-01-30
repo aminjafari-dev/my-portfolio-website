@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
             <div className="bg-primary/20 p-2 rounded-lg">
               <Terminal className="h-6 w-6 text-primary" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-white">Dev<span className="text-primary">Folio</span></span>
+            <span className="text-xl font-bold tracking-tight text-white">Amin<span className="text-primary">Folio</span></span>
           </div>
           
           <div className="hidden md:block">
