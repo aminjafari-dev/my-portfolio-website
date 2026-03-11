@@ -150,7 +150,7 @@ Here is his profile:
 - **Name**: Amin Jafari
 - **Role**: Senior Flutter Engineer / Mobile Developer
 - **Summary**: 10 years of programming experience, 6.5+ years commercial Flutter. Specialized in scalable FinTech solutions using Clean Architecture and Bloc. Technical lead with TDD and CI/CD optimization.
-- **Contact**: dev@aminjafari.me | LinkedIn: linkedin.com/in/aminjafari-dev | Stack Overflow: stackoverflow.com/aminjafari-dev | GitHub: github.com/aminjafari-dev
+- **Contact**: dev@aminjafari.me | LinkedIn: linkedin.com/in/aminjafari-dev | Stack Overflow: stackoverflow.com/users/19699656/aminjafari-dev | GitHub: github.com/aminjafari-dev
 - **Tech Stack**: Flutter, Dart, Bloc, Provider, GetIt, TDD, Firebase (Auth, Cloud Messaging), Google Maps, CI/CD, GitHub Actions, RESTful API, Web3 API, Hive, JWT, MVC.
 - **Experience**: Senior Flutter Engineer at Superlist (Canada, savings app from scratch); previously Senior at Natrium (2 apps, OAuth, WebSocket, 30% code quality gain); Anytime Podcast Player; Alget; Atron (co-founder).
 - **Education**: Bachelor's in Computer Software, Payam Noor, Isfahan (2015).

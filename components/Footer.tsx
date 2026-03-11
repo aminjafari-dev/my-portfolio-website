@@ -4,7 +4,7 @@ import { Github, Linkedin, Heart, ExternalLink } from 'lucide-react';
 const SOCIAL_LINKS = [
   { href: 'https://github.com/aminjafari-dev', label: 'GitHub', Icon: Github },
   { href: 'https://linkedin.com/in/aminjafari-dev', label: 'LinkedIn', Icon: Linkedin },
-  { href: 'https://stackoverflow.com/users/aminjafari-dev', label: 'Stack Overflow', Icon: ExternalLink },
+  { href: 'https://stackoverflow.com/users/19699656/aminjafari-dev', label: 'Stack Overflow', Icon: ExternalLink },
 ] as const;
 
 const Footer: React.FC = () => {
