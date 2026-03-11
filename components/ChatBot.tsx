@@ -9,7 +9,7 @@ const ChatBot: React.FC = () => {
     {
       id: '0',
       role: 'model',
-      text: "Hi there! I'm Alex's AI assistant. Ask me anything about his skills, experience, or projects.",
+      text: "Hi there! I'm Amin's AI assistant. Ask me anything about his skills, experience, or projects.",
       timestamp: new Date()
     }
   ]);
@@ -149,6 +149,20 @@ const ChatBot: React.FC = () => {
               </div>
             </div>
           ))}
+          {/* Typing indicator when AI is thinking */}
+          {isLoading && (
+            <div className="flex items-center gap-2 text-xs text-slate-400 mt-2">
+              <Bot className="w-3 h-3 text-primary" />
+              <span className="flex items-center gap-1">
+                writing
+                <span className="flex gap-0.5">
+                  <span className="w-1 h-1 rounded-full bg-primary/60 animate-bounce [animation-delay:-0.2s]" />
+                  <span className="w-1 h-1 rounded-full bg-primary/60 animate-bounce [animation-delay:0s]" />
+                  <span className="w-1 h-1 rounded-full bg-primary/60 animate-bounce [animation-delay:0.2s]" />
+                </span>
+              </span>
+            </div>
+          )}
           <div ref={messagesEndRef} />
         </div>
 
