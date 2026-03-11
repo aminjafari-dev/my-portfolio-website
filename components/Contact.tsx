@@ -29,7 +29,12 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-slate-400">Email</h4>
-                    <p className="text-white">dev@aminjafari.me</p>
+                    <a
+                      href="mailto:dev@aminjafari.me"
+                      className="text-white hover:text-primary transition-colors"
+                    >
+                      dev@aminjafari.me
+                    </a>
                   </div>
                 </div>
 
@@ -39,7 +44,12 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-slate-400">Phone</h4>
-                    <p className="text-white">(+98) 9133265739</p>
+                    <a
+                      href="tel:+37493889073"
+                      className="text-white hover:text-primary transition-colors"
+                    >
+                      (+374) 93 889 073
+                    </a>
                   </div>
                 </div>
 
@@ -49,7 +59,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-slate-400">Location</h4>
-                    <p className="text-white">Canada / Remote</p>
+                    <p className="text-white">Yerevan, Armenia</p>
                   </div>
                 </div>
              </div>
