@@ -9,7 +9,7 @@ const ChatBot: React.FC = () => {
     {
       id: '0',
       role: 'model',
-      text: "Hi there! I'm Alex's AI assistant. Ask me anything about his skills, experience, or projects.",
+      text: "Hi there! I'm Amin's AI assistant. Ask me anything about his skills, experience, or projects.",
       timestamp: new Date()
     }
   ]);
