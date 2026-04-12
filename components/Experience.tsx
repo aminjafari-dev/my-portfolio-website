@@ -13,7 +13,7 @@ const Experience: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Experience</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            A decade of programming and 6.5+ years of commercial Flutter delivery across FinTech and product teams.
+            A decade in mobile and web, with seven years focused on production Flutter—from savings and enterprise apps to org-wide engineering standards.
           </p>
         </div>
 

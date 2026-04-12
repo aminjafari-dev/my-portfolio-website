@@ -48,12 +48,12 @@ const Hero: React.FC = () => {
              </div>
              <div className="w-px h-10 bg-slate-800"></div>
              <div>
-                <span className="block text-2xl font-bold text-white">6.5+</span>
+                <span className="block text-2xl font-bold text-white">7+</span>
                 <span className="text-sm">Years Flutter</span>
              </div>
              <div className="w-px h-10 bg-slate-800"></div>
              <div>
-                <span className="block text-2xl font-bold text-white">5+</span>
+                <span className="block text-2xl font-bold text-white">6</span>
                 <span className="text-sm">Companies</span>
              </div>
           </div>
