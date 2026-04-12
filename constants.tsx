@@ -12,31 +12,35 @@ import {
 } from 'lucide-react';
 
 export const HERO_TITLE = "Architecting Mobile Excellence";
-export const HERO_SUBTITLE = "Senior Mobile Engineer with 10 years of programming experience, including 6.5+ years delivering commercial Flutter applications. Specialized in scalable FinTech solutions using Clean Architecture and Bloc.";
+export const HERO_SUBTITLE =
+  "Flutter developer with a decade across mobile and web—including seven years shipping production Flutter for mobile and web. I focus on scalable products, performance, Bloc and TDD, Firebase and CI/CD, and technical leadership from team lead to org-wide development standards.";
 
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Superlist — Savings & Banking',
-    description: 'Joined the initial Canadian savings-account team as mobile engineer. Built the mobile app from scratch; led 3 projects and published high-quality apps on App Store and Google Play. Design system, Bloc, Git Flow, 50+ unit/widget tests.',
-    tags: ['Flutter', 'Bloc', 'TDD', 'CI/CD', 'Fintech'],
+    title: 'Appx Labz — Savings & Banking',
+    description:
+      'Joined the initial Canadian savings-account team as a mobile engineer and helped build the product from scratch. Led three projects and shipped to the App Store and Google Play; contributed to the design system and backend architecture. Bloc, TDD, Git Flow, Firebase, CI/CD, and 50+ unit and widget tests.',
+    tags: ['Flutter', 'Bloc', 'TDD', 'CI/CD', 'FinTech'],
     imageUrl: '/1.jpeg',
     link: '#',
     github: undefined
   },
   {
     id: '2',
-    title: 'Natrium — Enterprise Apps',
-    description: 'Led app developers; released 2 applications with app-store coordination. OAuth & Firebase auth (30% fewer unauthorized access), Bloc refactor (18% performance), TDD (23% fewer bugs), CI/CD (25% fewer deployment errors), WebSocket push.',
-    tags: ['Flutter', 'Firebase Auth', 'OAuth', 'WebSocket', 'Git Flow'],
+    title: 'Plasco — Enterprise Apps',
+    description:
+      'Led application developers between UI/UX and backend; coordinated two store releases. OAuth and Firebase auth cut unauthorized access; Bloc, TDD, and Git Flow improved quality; CI/CD cut deployment errors; mentoring and code reviews lifted team standards.',
+    tags: ['Flutter', 'Firebase Auth', 'OAuth', 'Git Flow', 'CI/CD'],
     imageUrl: '/2.jpeg',
     link: '#',
     github: undefined
   },
   {
     id: '3',
-    title: 'Anytime Podcast Player',
-    description: 'Google service integration (20% retention, 15% satisfaction), GitHub collaboration (35% efficiency), custom push notifications (20% engagement), 10+ custom widgets/animations, internationalization for 3 languages.',
+    title: 'Raimon — Consumer Flutter',
+    description:
+      'Google services integration improved retention and satisfaction; GitHub workflows sped collaboration; custom push notifications and 10+ custom widgets and animations; responsive layouts for diverse devices; internationalization for three languages.',
     tags: ['Flutter', 'Google Services', 'Localization', 'Push Notifications'],
     imageUrl: '/3.jpeg',
     link: '#',
@@ -50,80 +54,127 @@ export const SKILLS: Skill[] = [
   { name: 'Firebase & GCP', icon: <Server className="w-5 h-5" />, level: 90, category: 'backend' },
   { name: 'CI/CD & Git Flow', icon: <GitBranch className="w-5 h-5" />, level: 92, category: 'tools' },
   { name: 'TDD & Unit Testing', icon: <Terminal className="w-5 h-5" />, level: 88, category: 'tools' },
-  { name: 'RESTful & Web3 API', icon: <Database className="w-5 h-5" />, level: 85, category: 'backend' },
+  { name: 'TypeScript, React & Node', icon: <Database className="w-5 h-5" />, level: 82, category: 'frontend' },
   { name: 'Performance Opt.', icon: <Cpu className="w-5 h-5" />, level: 90, category: 'mobile' },
   { name: 'Responsive UI/UX', icon: <Layout className="w-5 h-5" />, level: 95, category: 'frontend' },
 ];
 
 /** Resume skills list (flat) for display where needed */
 export const SKILL_TAGS = [
-  'Flutter', 'Web3 API', 'GitHub Action', 'Google API', 'Firebase notification', 'Cloud Messaging',
-  'Google Maps', 'Android', 'Git', 'Google Cloud Platform', 'Bloc', 'Shared preferences',
-  'Performance Optimization', 'Hive', 'iOS', 'API Development', 'Localization', 'GetIt', 'TDD',
-  'MVC', 'JWT authentication', 'Responsive UI', 'Windows', 'Block chain API', 'Provider', 'Git Flow',
-  'CI/CD', 'RESTful API', 'WordPress API', 'Dart', 'macOS',
+  'Flutter',
+  'Web3 API',
+  'GitHub Action',
+  'Google API',
+  'Firebase notification',
+  'Cloud Messaging',
+  'Google Maps',
+  'TypeScript',
+  'Git',
+  'Google Cloud Platform',
+  'Lifecycle of application',
+  'Bloc',
+  'Shared preferences',
+  'Performance Optimization',
+  'Hive',
+  '.Net Framework',
+  'API Development',
+  'Localization',
+  'GetIt',
+  'TDD',
+  'MVC',
+  'JWT authentication',
+  'Responsive UI',
+  'Node.js',
+  'Block chain API',
+  'Provider',
+  'Git Flow',
+  'CI/CD',
+  'RESTful API',
+  'WordPress API',
+  'Dart',
+  'React',
 ];
 
 export const EXPERIENCE: Experience[] = [
   {
     id: '1',
-    role: 'Senior Flutter Engineer',
-    company: 'Superlist',
-    period: '12/2023 – Present',
+    role: 'Full-stack developer',
+    company: 'Entekhab Group, Esfahan',
+    period: '07/2025 – Present',
     description: [
-      'Joined the initial savings-account Canadian team as mobile engineer; contributed to creating the mobile app from scratch.',
-      'Led three projects and successfully published high-quality applications on Apple App Store and Google Play.',
-      'Collaborated on app design system and robust, efficient backend architecture.',
-      'Standardized development workflow using Bloc and Git Flow; wrote unit and widget tests for 50+ critical functions.'
+      'Led the Flutter team at Entekhab Group; introduced Cursor and other AI coding tools and showed how the team could finish complex tasks faster, cleaner, and with far less manual effort.',
+      "Gained leadership's attention by demonstrating how AI could transform the daily workflow; was asked to write the official Cursor rules for the entire organization.",
+      'Took on core responsibility for high-performance, best-practice Cursor rules and development guidelines for the full program team—Flutter mobile, .NET backend, and React/Node.js frontend.',
+      'Designed and documented structured, scalable rules so every developer could write cleaner, more efficient, and more maintainable code across the tech stack.',
+      'Worked closely with Flutter, backend, and frontend teams to implement modern AI-assisted practices, improving development speed and code quality while fostering continuous learning and innovation.'
     ]
   },
   {
     id: '2',
     role: 'Senior Flutter Engineer',
-    company: 'Natrium',
-    period: '06/2021 – 10/2023',
+    company: 'Appx Labz, Canada',
+    period: '12/2023 – 06/2025',
     description: [
-      'Led a team of application developers; communicated between UI/UX designers and backend developers.',
-      'Spearheaded release of 2 applications, coordinating with app stores for timely, error-free launches.',
-      'Conducted 20+ code reviews and 10+ mentoring sessions; 30% increase in team code quality.',
-      'Reduced unauthorized access by 30% with OAuth and Firebase auth; refactored to Bloc (18% performance gain).',
-      'TDD and automated testing (23% fewer post-release bugs); CI/CD pipelines (25% fewer deployment errors).',
-      'Integrated WebSocket (Go backend) for instant push notifications and reduced battery usage.'
+      'Joined the initial savings-account Canadian team as a mobile engineer and contributed to creating the mobile app product from scratch.',
+      'Led three projects and successfully published high-quality applications on both the Apple App Store and Google Play.',
+      "Collaborated on developing the app's design system and contributed to creating a robust, efficient, and optimized backend architecture for the application.",
+      "Maintained close collaboration with the UI and QA teams to ensure the application's optimal performance.",
+      'Utilized Bloc, TDD, Git Flow, and Firebase to boost app performance and initiated continuous integration and deployment (CI/CD) pipelines.',
+      'Developed unit tests and widget tests for over 50 functions, improving app quality.'
     ]
   },
   {
     id: '3',
-    role: 'Mid-level Flutter Developer',
-    company: 'Anytime Podcast Player',
-    period: '04/2020 – 05/2021',
+    role: 'Senior Flutter Developer',
+    company: 'Plasco, Asaluyeh',
+    period: '06/2021 – 10/2023',
     description: [
-      'Enhanced app performance with Google service integration; 20% higher user retention, 15% greater satisfaction.',
-      'Implemented GitHub for version control and team collaboration; 35% increase in development efficiency.',
-      'Crafted custom push notification solutions, boosting user engagement by 20%.',
-      'Created 10+ custom widgets and animations; internationalization for 3 language audiences.'
+      'Led a team of application developers, communicating between UI/UX designers and backend developers.',
+      'Spearheaded the release process of 2 applications, including coordinating with app stores for timely and error-free launches.',
+      'Conducted 20+ code reviews and facilitated 10+ mentoring sessions, leading to a 30% increase in team code quality.',
+      'Reduced unauthorized access by 30% with OAuth and Firebase auth.',
+      'Utilized Bloc, TDD, Git Flow, and Firebase to boost app performance and enhance code quality by 18%.',
+      'Developed unit tests and widget tests, improving app quality with a 23% reduction in bugs.',
+      'Initiated CI/CD pipelines, reducing deployment errors by 25%.'
     ]
   },
   {
     id: '4',
     role: 'Mid-level Flutter Developer',
-    company: 'Alget',
+    company: 'Raimon, Isfahan',
+    period: '04/2020 – 05/2021',
+    description: [
+      'Enhanced app performance with Google service integration, resulting in 20% higher user retention and 15% greater user satisfaction.',
+      'Implemented GitHub for version control and team collaboration, achieving a 35% increase in development efficiency.',
+      'Crafted custom push notification solutions, boosting user engagement by 20%.',
+      'Enhanced the app for diverse devices, increasing user engagement by 25%.',
+      'Created more than 10 custom widgets and animations to enhance the user experience and app aesthetics.',
+      'Implemented internationalization to cater to 3 language audiences.'
+    ]
+  },
+  {
+    id: '5',
+    role: 'Mid-level Flutter Developer',
+    company: 'Alget, Amsterdam',
     period: '04/2019 – 03/2020',
     description: [
       'Refactored old code, cutting redundant lines by 10%.',
       'Shifted to GetX state management and MVC architecture, slashing loading times by 27%.',
       'Managed app localization and support for 2 languages and regions.',
-      'Integrated social sharing and deep linking; improved functionality and user satisfaction with Google Maps and Firebase.'
+      'Integrated social sharing and deep linking for user engagement and app growth.',
+      'Improved app functionality and user satisfaction by 25% and 20%, respectively, through Google Maps and Firebase services.'
     ]
   },
   {
-    id: '5',
+    id: '6',
     role: 'Mobile App Developer',
-    company: 'Atron',
+    company: 'Atron, Isfahan',
     period: '08/2017 – 03/2019',
     description: [
-      'Co-founded Atron; led development of 3 personal applications and 2 client projects.',
+      'Co-founded the Atron team alongside 3 other individuals.',
+      'Successfully developed 3 personal applications and completed 2 project assignments as a team.',
       'Improved app accessibility, enhancing inclusivity and making it 30% more user-friendly.',
-      'Organized 5+ customer onboarding meetings to ensure satisfaction and product adoption.'
+      'Initiated, organized, and conducted over 5 meetings to onboard customers, ensuring satisfaction and product adoption.'
     ]
   }
 ];
@@ -145,16 +196,16 @@ export const LANGUAGES = [
 export const RESUME_PDF_URL = '/resume.pdf';
 
 export const SYSTEM_INSTRUCTION = `
-You are an AI assistant for a portfolio website. The owner is Amin Jafari, a Senior Flutter Developer.
+You are an AI assistant for a portfolio website. The owner is Amin Jafari, a Flutter developer.
 Here is his profile:
 - **Name**: Amin Jafari
-- **Role**: Senior Flutter Engineer / Mobile Developer
-- **Summary**: 10 years of programming experience, 6.5+ years commercial Flutter. Specialized in scalable FinTech solutions using Clean Architecture and Bloc. Technical lead with TDD and CI/CD optimization.
-- **Contact**: dev@aminjafari.me | LinkedIn: linkedin.com/in/aminjafari-dev | Stack Overflow: stackoverflow.com/users/19699656/aminjafari-dev | GitHub: github.com/aminjafari-dev
-- **Tech Stack**: Flutter, Dart, Bloc, Provider, GetIt, TDD, Firebase (Auth, Cloud Messaging), Google Maps, CI/CD, GitHub Actions, RESTful API, Web3 API, Hive, JWT, MVC.
-- **Experience**: Senior Flutter Engineer at Superlist (Canada, savings app from scratch); previously Senior at Natrium (2 apps, OAuth, WebSocket, 30% code quality gain); Anytime Podcast Player; Alget; Atron (co-founder).
-- **Education**: Bachelor's in Computer Software, Payam Noor, Isfahan (2015).
+- **Role**: Flutter Developer (full-stack and mobile); leads teams and standards where needed
+- **Summary**: About a decade in mobile and web, with seven years focused on Flutter for mobile and web. Cares about scalable products, performance, Bloc, TDD, Firebase, and CI/CD. Strong backend integration experience; leadership improving architecture and engagement. Recently introduced org-wide Cursor rules and AI-assisted practices at Entekhab Group across Flutter, .NET, and React/Node.js.
+- **Contact**: dev@aminjafari.com | LinkedIn: linkedin.com/in/aminjafari-dev | Stack Overflow: stackoverflow.com/users/19699656/aminjafari-dev | GitHub: github.com/aminjafari-dev
+- **Tech Stack**: Flutter, Dart, Bloc, Provider, GetIt, TDD, MVC, Firebase (notifications, Cloud Messaging, auth), Google Maps, Google APIs, CI/CD, GitHub Actions, RESTful API, Web3/blockchain APIs, Hive, JWT, TypeScript, React, Node.js, .NET.
+- **Experience**: Full-stack developer at Entekhab Group, Esfahan (Jul 2025–present, Flutter lead, Cursor/org rules); Senior Flutter Engineer at Appx Labz, Canada (Dec 2023–Jun 2025, Canadian savings-account app from scratch); Senior Flutter Developer at Plasco, Asaluyeh (Jun 2021–Oct 2023); Mid-level at Raimon, Isfahan; Mid-level at Alget, Amsterdam; Mobile developer at Atron, Isfahan (co-founder).
+- **Education**: Bachelor's in Computer Software, Payam Noor, Isfahan (Sep 2015).
 - **Languages**: English (Full Professional), Persian (Native).
 
-Answer visitor questions about Amin politely and professionally. For contact, suggest the form or dev@aminjafari.me. Highlight Flutter, TDD, Clean Architecture, and CI/CD when asked about skills. Keep answers concise.
+Answer visitor questions about Amin politely and professionally. For contact, suggest the form or dev@aminjafari.com. Highlight Flutter, TDD, Bloc, Firebase, and CI/CD when asked about skills. Keep answers concise.
 `;
