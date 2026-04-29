@@ -49,8 +49,8 @@ const Experience: React.FC = () => {
           03 / 07
         </div>
 
-        <div ref={headRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 md:mb-20">
-          <div className="lg:col-span-6">
+        <div ref={headRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-x-12 xl:gap-x-16 mb-12 md:mb-20">
+          <div className="lg:col-span-7">
             <h2
               className="font-display uppercase leading-[0.85] tracking-tight"
               style={{ fontSize: 'clamp(64px, 11vw, 180px)' }}
@@ -58,7 +58,7 @@ const Experience: React.FC = () => {
               /Experience
             </h2>
           </div>
-          <div className="lg:col-span-6 lg:pt-6">
+          <div className="lg:col-span-5 lg:pt-6">
             <p className="text-base md:text-lg leading-relaxed text-paper/70 max-w-xl">
               A decade in mobile and web — seven years on production Flutter. From savings and
               enterprise apps to organization-wide engineering standards.
