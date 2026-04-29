@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project, Experience, Skill } from './types';
+import { Project, Experience, Skill, ProcessStep } from './types';
 import { 
   Code, 
   Smartphone, 
@@ -18,34 +18,37 @@ export const HERO_SUBTITLE =
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Appx Labz — Savings & Banking',
+    title: 'Appx Labz',
     description:
       'Joined the initial Canadian savings-account team as a mobile engineer and helped build the product from scratch. Led three projects and shipped to the App Store and Google Play; contributed to the design system and backend architecture. Bloc, TDD, Git Flow, Firebase, CI/CD, and 50+ unit and widget tests.',
     tags: ['Flutter', 'Bloc', 'TDD', 'CI/CD', 'FinTech'],
     imageUrl: '/1.jpeg',
     link: '#',
-    github: undefined
+    github: undefined,
+    category: 'Savings & Banking',
   },
   {
     id: '2',
-    title: 'Plasco — Enterprise Apps',
+    title: 'Plasco',
     description:
       'Led application developers between UI/UX and backend; coordinated two store releases. OAuth and Firebase auth cut unauthorized access; Bloc, TDD, and Git Flow improved quality; CI/CD cut deployment errors; mentoring and code reviews lifted team standards.',
     tags: ['Flutter', 'Firebase Auth', 'OAuth', 'Git Flow', 'CI/CD'],
     imageUrl: '/2.jpeg',
     link: '#',
-    github: undefined
+    github: undefined,
+    category: 'Enterprise Apps',
   },
   {
     id: '3',
-    title: 'Raimon — Consumer Flutter',
+    title: 'Raimon',
     description:
       'Google services integration improved retention and satisfaction; GitHub workflows sped collaboration; custom push notifications and 10+ custom widgets and animations; responsive layouts for diverse devices; internationalization for three languages.',
     tags: ['Flutter', 'Google Services', 'Localization', 'Push Notifications'],
     imageUrl: '/3.jpeg',
     link: '#',
-    github: undefined
-  }
+    github: undefined,
+    category: 'Consumer Flutter',
+  },
 ];
 
 export const SKILLS: Skill[] = [
@@ -194,6 +197,40 @@ export const LANGUAGES = [
 
 /** Resume PDF path: file lives in public/resume.pdf and is served statically at /resume.pdf */
 export const RESUME_PDF_URL = '/resume.pdf';
+
+/** Marquee strings used in the About section ticker */
+export const MARQUEE_ITEMS: string[] = [
+  'DESIGN BY AMIN',
+  'FLUTTER & MOBILE',
+  'FROM SCRATCH TO SCALE',
+  'TEAM LEAD & ARCHITECT',
+  'BLOC · TDD · CI/CD',
+];
+
+/** Process steps used in the PLAN / CODE / SCALE section */
+export const PROCESS_STEPS: ProcessStep[] = [
+  {
+    id: 'plan',
+    label: 'PLAN',
+    description:
+      'Discovery, requirements, and architecture. I shape the design system, Bloc patterns, and engineering rules so the team ships clean, predictable code from day one.',
+    imageUrl: '/1.jpeg',
+  },
+  {
+    id: 'code',
+    label: 'CODE',
+    description:
+      'Production Flutter for mobile and web. TDD with 50+ unit and widget tests, Bloc / Provider / GetIt, Hive, and modern AI-assisted workflows—built to last.',
+    imageUrl: '/2.jpeg',
+  },
+  {
+    id: 'scale',
+    label: 'SCALE',
+    description:
+      'Firebase and GCP, CI/CD pipelines, App Store and Google Play releases, internationalization, push notifications, and the mentorship that levels up the whole team.',
+    imageUrl: '/3.jpeg',
+  },
+];
 
 export const SYSTEM_INSTRUCTION = `
 You are an AI assistant for a portfolio website. The owner is Amin Jafari, a Flutter developer.
