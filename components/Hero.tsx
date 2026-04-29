@@ -1,74 +1,131 @@
-import React from 'react';
-import { ArrowRight, Download } from 'lucide-react';
-import Button from './Button';
-import { HERO_SUBTITLE, RESUME_PDF_URL } from '../constants';
+import React, { useEffect, useRef } from 'react';
+import { ArrowDown } from 'lucide-react';
+import { ensureGsap } from '../lib/gsap';
 
 const Hero: React.FC = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const bgTextRef = useRef<HTMLDivElement | null>(null);
+  const portraitRef = useRef<HTMLDivElement | null>(null);
+  const floatLeftRef = useRef<HTMLDivElement | null>(null);
+  const floatRightRef = useRef<HTMLDivElement | null>(null);
+  const paginationRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const { gsap } = ensureGsap();
+    const tl = gsap.timeline({ delay: 1.5 });
+
+    if (bgTextRef.current) {
+      tl.from(bgTextRef.current, {
+        yPercent: 18,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'expo.out',
+      });
+    }
+    if (portraitRef.current) {
+      tl.from(
+        portraitRef.current,
+        { scale: 0.92, opacity: 0, duration: 1.2, ease: 'expo.out' },
+        '-=0.9'
+      );
+    }
+    [floatLeftRef.current, floatRightRef.current, paginationRef.current].forEach((el, i) => {
+      if (!el) return;
+      tl.from(el, { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out' }, `-=${0.6 - i * 0.1}`);
+    });
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute -top-[30%] -left-[10%] w-[70%] h-[70%] bg-primary/20 rounded-full blur-[120px] opacity-30 animate-pulse" />
-        <div className="absolute top-[40%] -right-[10%] w-[60%] h-[60%] bg-secondary/20 rounded-full blur-[100px] opacity-20" />
+    <section
+      id="home"
+      ref={sectionRef}
+      data-theme="light"
+      className="relative min-h-screen w-full bg-paper text-ink overflow-hidden"
+    >
+      {/* Decorative concentric circles */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center -z-0">
+        <svg
+          width="120%"
+          height="120%"
+          viewBox="0 0 1200 1200"
+          className="opacity-[0.07]"
+          aria-hidden="true"
+        >
+          {Array.from({ length: 14 }).map((_, i) => (
+            <circle
+              key={i}
+              cx="600"
+              cy="600"
+              r={50 + i * 40}
+              fill="none"
+              stroke="#0a0a0a"
+              strokeWidth="1"
+            />
+          ))}
+        </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
-        <div className="flex-1 text-center md:text-left space-y-8">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-            Available for hire
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
-            Hello, I'm <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              Amin Jafari
-            </span>
-          </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-            {HERO_SUBTITLE}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-            <Button size="lg" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
-              View Projects <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <a
-              href={RESUME_PDF_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg font-medium border border-slate-600 text-slate-200 hover:border-slate-400 hover:bg-slate-800 px-6 py-3.5 text-base transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark"
-            >
-              Download CV <Download className="ml-2 w-5 h-5" />
-            </a>
-          </div>
-          
-          <div className="pt-8 flex items-center gap-8 justify-center md:justify-start text-slate-500">
-             <div>
-                <span className="block text-2xl font-bold text-white">10+</span>
-                <span className="text-sm">Years Exp.</span>
-             </div>
-             <div className="w-px h-10 bg-slate-800"></div>
-             <div>
-                <span className="block text-2xl font-bold text-white">7+</span>
-                <span className="text-sm">Years Flutter</span>
-             </div>
-             <div className="w-px h-10 bg-slate-800"></div>
-             <div>
-                <span className="block text-2xl font-bold text-white">6</span>
-                <span className="text-sm">Companies</span>
-             </div>
-          </div>
-        </div>
+      {/* Pagination */}
+      <div
+        ref={paginationRef}
+        className="absolute top-24 right-6 md:top-28 md:right-10 text-[11px] tracking-[0.2em] uppercase font-mono text-ink/60"
+      >
+        01 / 07
+      </div>
 
-        <div className="flex-1 mt-12 md:mt-0 relative">
-          <div className="relative w-80 h-80 md:w-[500px] md:h-[500px] mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 blur-3xl"></div>
-            <img
-              src="/0.jpeg"
-              alt="Amin Jafari - Portrait"
-              className="relative w-full h-full object-cover rounded-3xl rotate-3 hover:rotate-0 transition-all duration-500 shadow-2xl border-2 border-white/10"
-            />
-          </div>
+      {/* Massive background name */}
+      <div
+        ref={bgTextRef}
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none px-2"
+      >
+        <h1
+          className="font-display uppercase whitespace-nowrap leading-[0.85] tracking-tight text-ink"
+          style={{ fontSize: 'clamp(72px, 16vw, 260px)' }}
+        >
+          Amin&nbsp;Jafari
+        </h1>
+      </div>
+
+      {/* Foreground portrait */}
+      <div
+        ref={portraitRef}
+        className="absolute left-1/2 bottom-0 -translate-x-1/2 z-10 w-[68vw] max-w-[480px] md:max-w-[560px]"
+      >
+        <div className="relative">
+          <img
+            src="/0.jpeg"
+            alt="Portrait of Amin Jafari"
+            className="w-full h-auto object-cover rounded-t-[40px] shadow-2xl"
+            style={{ aspectRatio: '4 / 5' }}
+          />
         </div>
+      </div>
+
+      {/* Floating tags */}
+      <div
+        ref={floatLeftRef}
+        className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 z-20 max-w-[170px] md:max-w-[210px]"
+      >
+        <div className="flex items-start gap-2 text-[11px] md:text-xs uppercase tracking-[0.2em] font-medium text-ink/70 leading-snug">
+          <span className="block w-2 h-2 mt-1 rounded-full bg-ink" />
+          <span>
+            Senior Flutter Engineer
+            <br />
+            &amp; Team Lead
+          </span>
+        </div>
+      </div>
+
+      <div
+        ref={floatRightRef}
+        className="absolute right-4 md:right-10 bottom-8 md:bottom-12 z-20 flex items-center gap-2 text-[11px] md:text-xs uppercase tracking-[0.2em] font-medium text-ink/70"
+      >
+        <span>Scroll down</span>
+        <ArrowDown className="w-4 h-4" />
       </div>
     </section>
   );

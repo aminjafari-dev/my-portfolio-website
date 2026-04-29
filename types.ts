@@ -8,6 +8,14 @@ export interface Project {
   imageUrl: string;
   link: string;
   github?: string;
+  category: string;
+}
+
+export interface ProcessStep {
+  id: string;
+  label: string;
+  description: string;
+  imageUrl: string;
 }
 
 export interface Skill {

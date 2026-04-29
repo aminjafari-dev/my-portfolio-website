@@ -1,96 +1,132 @@
-import React from 'react';
-import { Mail, MapPin, Phone } from 'lucide-react';
-import Button from './Button';
-import { RESUME_PDF_URL } from '../constants';
+import React, { useEffect, useRef } from 'react';
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ensureGsap } from '../lib/gsap';
 
 const Contact: React.FC = () => {
-  return (
-    <section id="contact" className="py-24 bg-dark relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headRef = useRef<HTMLDivElement | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const infoRef = useRef<HTMLDivElement | null>(null);
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Have a project in mind or want to discuss Flutter development? I'm always open to new opportunities and technical discussions.
-          </p>
+  useEffect(() => {
+    const { gsap, ScrollTrigger } = ensureGsap();
+    const targets = [headRef.current, infoRef.current, formRef.current].filter(
+      Boolean
+    ) as HTMLElement[];
+    if (!targets.length) return;
+
+    const ctx = gsap.context(() => {
+      targets.forEach((el, i) => {
+        gsap.from(el, {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          ease: 'expo.out',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: el, start: 'top 88%' },
+        });
+      });
+    }, sectionRef);
+    ScrollTrigger.refresh();
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      id="contact"
+      ref={sectionRef}
+      data-theme="dark"
+      className="relative bg-ink text-paper overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 relative">
+        <div className="absolute top-8 right-6 md:top-10 md:right-10 text-[11px] tracking-[0.2em] uppercase font-mono text-paper/60">
+          07 / 07
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Info Card */}
-          <div className="space-y-8">
-             <div className="bg-card/50 border border-white/5 rounded-2xl p-8 space-y-6">
-                <h3 className="text-xl font-bold text-white">Contact Information</h3>
-                
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-slate-400">Email</h4>
-                    <a
-                      href="mailto:dev@aminjafari.me"
-                      className="text-white hover:text-primary transition-colors"
-                    >
-                      dev@aminjafari.me
-                    </a>
-                  </div>
-                </div>
+        <div ref={headRef} className="flex items-start gap-3 mb-14 md:mb-20">
+          <h2
+            className="font-display uppercase leading-[0.85] tracking-tight"
+            style={{ fontSize: 'clamp(72px, 12vw, 200px)' }}
+          >
+            /Contact
+          </h2>
+          <ArrowUpRight
+            className="w-10 h-10 md:w-16 md:h-16 mt-2 md:mt-3 stroke-[1.25]"
+            aria-hidden="true"
+          />
+        </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-secondary/10 rounded-lg text-secondary">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-slate-400">Phone</h4>
-                    <a
-                      href="tel:+37493889073"
-                      className="text-white hover:text-primary transition-colors"
-                    >
-                      (+374) 93 889 073
-                    </a>
-                  </div>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16">
+          <div ref={infoRef} className="lg:col-span-5 flex flex-col gap-8">
+            <p className="text-base md:text-lg leading-relaxed text-paper/75 max-w-md">
+              Got a project, a Flutter team to scale, or just want to talk shop? I read every
+              message and reply within a day or two.
+            </p>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-purple-500/10 rounded-lg text-purple-400">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-slate-400">Location</h4>
-                    <p className="text-white">Yerevan, Armenia</p>
-                  </div>
-                </div>
-             </div>
-
-             <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white relative overflow-hidden">
-                <div className="relative z-10">
-                  <h3 className="text-xl font-bold mb-2">Download Resume</h3>
-                  <p className="text-white/80 mb-6 text-sm">Get a detailed look at my professional journey, skills, and Flutter expertise.</p>
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4">
+                <span className="w-10 h-10 rounded-md border border-paper/20 grid place-items-center text-paper/70">
+                  <Mail className="w-4 h-4" />
+                </span>
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-paper/50">Email</p>
                   <a
-                    href={RESUME_PDF_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-white text-primary px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-100 transition-colors"
+                    href="mailto:dev@aminjafari.me"
+                    className="text-paper hover:opacity-70 transition-opacity"
                   >
-                    Download PDF
+                    dev@aminjafari.me
                   </a>
                 </div>
-                <div className="absolute right-0 bottom-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mb-16"></div>
-             </div>
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="w-10 h-10 rounded-md border border-paper/20 grid place-items-center text-paper/70">
+                  <Phone className="w-4 h-4" />
+                </span>
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-paper/50">Phone</p>
+                  <a
+                    href="tel:+37493889073"
+                    className="text-paper hover:opacity-70 transition-opacity"
+                  >
+                    (+374) 93 889 073
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="w-10 h-10 rounded-md border border-paper/20 grid place-items-center text-paper/70">
+                  <MapPin className="w-4 h-4" />
+                </span>
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-paper/50">Location</p>
+                  <p className="text-paper">Yerevan, Armenia</p>
+                </div>
+              </li>
+            </ul>
+
+            <a
+              href="mailto:dev@aminjafari.me"
+              className="mt-2 inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] font-semibold text-paper/80 hover:text-paper transition-colors"
+            >
+              <span className="w-12 h-12 rounded-full border border-paper/30 grid place-items-center">
+                <ArrowUpRight className="w-4 h-4" />
+              </span>
+              Send me a message
+            </a>
           </div>
 
-          {/* Form - handled by FormSubmit to send emails directly to dev@aminjafari.me */}
           <form
+            ref={formRef}
             action="https://formsubmit.co/dev@aminjafari.me"
             method="POST"
-            className="bg-card border border-white/5 rounded-2xl p-8 shadow-xl"
+            className="lg:col-span-7 border border-paper/15 rounded-2xl p-6 md:p-10 bg-paper/[0.02]"
           >
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-[11px] uppercase tracking-[0.2em] text-paper/50 mb-2"
+                  >
                     Name
                   </label>
                   <input
@@ -98,12 +134,15 @@ const Contact: React.FC = () => {
                     id="name"
                     name="name"
                     required
-                    className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Your Name"
+                    className="w-full bg-transparent border-b border-paper/25 focus:border-paper outline-none py-3 text-paper placeholder:text-paper/30 transition-colors"
+                    placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-[11px] uppercase tracking-[0.2em] text-paper/50 mb-2"
+                  >
                     Email
                   </label>
                   <input
@@ -111,27 +150,33 @@ const Contact: React.FC = () => {
                     id="email"
                     name="email"
                     required
-                    className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                    className="w-full bg-transparent border-b border-paper/25 focus:border-paper outline-none py-3 text-paper placeholder:text-paper/30 transition-colors"
                     placeholder="email@example.com"
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-slate-400 mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-[11px] uppercase tracking-[0.2em] text-paper/50 mb-2"
+                >
                   Subject
                 </label>
                 <input
                   type="text"
                   id="subject"
                   name="subject"
-                  className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                  placeholder="Collaboration / Job Opportunity"
+                  className="w-full bg-transparent border-b border-paper/25 focus:border-paper outline-none py-3 text-paper placeholder:text-paper/30 transition-colors"
+                  placeholder="Collaboration / Job opportunity"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-[11px] uppercase tracking-[0.2em] text-paper/50 mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -139,18 +184,20 @@ const Contact: React.FC = () => {
                   name="message"
                   rows={4}
                   required
-                  className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-none"
+                  className="w-full bg-transparent border-b border-paper/25 focus:border-paper outline-none py-3 text-paper placeholder:text-paper/30 transition-colors resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
-              {/* FormSubmit configuration: redirect back to your site and disable captcha */}
               <input type="hidden" name="_next" value="https://aminjafari.me" />
               <input type="hidden" name="_captcha" value="false" />
 
-              <Button type="submit" size="lg" className="w-full">
-                Send Message
-              </Button>
+              <button
+                type="submit"
+                className="w-full py-4 rounded-full bg-paper text-ink uppercase tracking-[0.25em] text-xs font-semibold hover:bg-paper-soft transition-colors"
+              >
+                Send message
+              </button>
             </div>
           </form>
         </div>
