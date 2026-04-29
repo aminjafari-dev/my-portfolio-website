@@ -11,26 +11,35 @@ const Process: React.FC = () => {
     const { gsap, ScrollTrigger } = ensureGsap();
     if (!sectionRef.current || !cardRef.current) return;
 
+    let mm: gsap.MatchMedia | null = null;
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: cardRef.current!,
-        start: 'top top+=80',
-        end: '+=200%',
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.4,
-        onUpdate: (self) => {
-          const idx = Math.min(
-            PROCESS_STEPS.length - 1,
-            Math.floor(self.progress * PROCESS_STEPS.length)
-          );
-          setActive(idx);
-        },
+      mm = gsap.matchMedia();
+      mm.add('(min-width: 1024px)', () => {
+        const trigger = ScrollTrigger.create({
+          trigger: cardRef.current!,
+          start: 'top top+=96',
+          end: '+=160%',
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.4,
+          onUpdate: (self) => {
+            const idx = Math.min(
+              PROCESS_STEPS.length - 1,
+              Math.floor(self.progress * PROCESS_STEPS.length)
+            );
+            setActive(idx);
+          },
+        });
+
+        return () => trigger.kill();
       });
     }, sectionRef);
 
     ScrollTrigger.refresh();
-    return () => ctx.revert();
+    return () => {
+      mm?.revert();
+      ctx.revert();
+    };
   }, []);
 
 
