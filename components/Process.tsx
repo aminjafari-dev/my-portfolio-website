@@ -1,52 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { PROCESS_STEPS } from '../constants';
-import { ensureGsap } from '../lib/gsap';
 
 const Process: React.FC = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const cardRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const { gsap, ScrollTrigger } = ensureGsap();
-    if (!sectionRef.current || !cardRef.current) return;
-
-    let mm: gsap.MatchMedia | null = null;
-    const ctx = gsap.context(() => {
-      mm = gsap.matchMedia();
-      mm.add('(min-width: 1024px)', () => {
-        const trigger = ScrollTrigger.create({
-          trigger: cardRef.current!,
-          start: 'top top+=96',
-          end: '+=160%',
-          pin: true,
-          pinSpacing: true,
-          scrub: 0.4,
-          onUpdate: (self) => {
-            const idx = Math.min(
-              PROCESS_STEPS.length - 1,
-              Math.floor(self.progress * PROCESS_STEPS.length)
-            );
-            setActive(idx);
-          },
-        });
-
-        return () => trigger.kill();
-      });
-    }, sectionRef);
-
-    ScrollTrigger.refresh();
-    return () => {
-      mm?.revert();
-      ctx.revert();
-    };
-  }, []);
-
 
   return (
     <section
       id="process"
-      ref={sectionRef}
       data-theme="light"
       className="relative bg-paper text-ink overflow-hidden"
     >
@@ -68,7 +28,6 @@ const Process: React.FC = () => {
         </div>
 
         <div
-          ref={cardRef}
           className="bg-ink text-paper rounded-[28px] md:rounded-[36px] p-6 md:p-12 lg:p-16 min-h-[80vh] md:min-h-[86vh] grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 overflow-hidden"
         >
           <div className="lg:col-span-7 flex flex-col justify-between">
